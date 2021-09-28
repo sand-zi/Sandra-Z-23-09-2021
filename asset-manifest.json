@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Sandra-Z-23-09-2021/static/css/main.48ef0d89.chunk.css",
-    "main.js": "/Sandra-Z-23-09-2021/static/js/main.1dabe79c.chunk.js",
-    "main.js.map": "/Sandra-Z-23-09-2021/static/js/main.1dabe79c.chunk.js.map",
+    "main.js": "/Sandra-Z-23-09-2021/static/js/main.f92eda7a.chunk.js",
+    "main.js.map": "/Sandra-Z-23-09-2021/static/js/main.f92eda7a.chunk.js.map",
     "runtime-main.js": "/Sandra-Z-23-09-2021/static/js/runtime-main.b261070e.js",
     "runtime-main.js.map": "/Sandra-Z-23-09-2021/static/js/runtime-main.b261070e.js.map",
     "static/js/2.904709c8.chunk.js": "/Sandra-Z-23-09-2021/static/js/2.904709c8.chunk.js",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.b261070e.js",
     "static/js/2.904709c8.chunk.js",
     "static/css/main.48ef0d89.chunk.css",
-    "static/js/main.1dabe79c.chunk.js"
+    "static/js/main.f92eda7a.chunk.js"
   ]
 }
