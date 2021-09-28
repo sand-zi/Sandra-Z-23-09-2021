@@ -1,0 +1,17 @@
+.favorites{
+    min-height: 93vh;
+    padding: 2em;
+    transition: background 0.5s ease;
+    background: linear-gradient($clr6, $clr4);
+    & > * {
+        color: $clr3;
+    }
+
+    &.dark{
+        background: linear-gradient($clr3, $clr1);
+    & > * {
+        color: $clr4;
+       
+    }
+    }
+}

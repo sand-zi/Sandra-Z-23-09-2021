@@ -1,0 +1,30 @@
+// Setup
+@import "setup/variables.scss";
+@import "setup/functions.scss";
+@import "setup/mixins.scss";
+@import "setup/typography.scss";
+
+// Basics
+@import "basics/helpers.scss";
+@import "basics/layout.scss";
+@import "basics/base.scss";
+@import "basics/buttons.scss";
+
+// Pages
+@import "pages/home.scss";
+@import "pages/favorites.scss";
+
+// Components
+
+@import "components/app-header.scss";
+@import "components/weather-app.scss";
+@import "components/weather-search.scss";
+@import "components/option-list.scss";
+@import "components/option-preview.scss";
+@import "components/forecast-preview.scss";
+@import "components/current-location-forecast.scss";
+@import "components/temp-scale-preview.scss";
+
+// Favorite page components
+@import "components/no-favorite-cities.scss";
+@import "components/favorite-city-preview.scss";

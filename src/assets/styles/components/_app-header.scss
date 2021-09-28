@@ -1,0 +1,48 @@
+.app-header {
+    height: 6vh;
+    padding: 2rem;
+    position: relative;
+    opacity: 0.9;
+
+    transition: background 0.5s ease;
+    background: linear-gradient($clr1, $clr3);
+    & > * {
+        color: $clr5;
+    }
+
+    &.dark {
+        background: linear-gradient($clr4, $clr6);
+        & > * {
+            color: $clr2;
+        }
+
+    }
+
+    .main-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        li {
+            cursor: pointer;
+        }
+        li:not(:first-of-type) {
+            margin-inline-start: 16px;
+        }
+
+        a {
+            text-transform: uppercase;
+        }
+
+        .active-nav {
+            font-weight: $fwBold;
+
+            text-decoration: underline;
+        }
+    }
+
+
+    .theme-changer{
+        cursor: pointer;
+    }
+}
