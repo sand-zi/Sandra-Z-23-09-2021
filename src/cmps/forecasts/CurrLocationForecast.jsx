@@ -9,7 +9,7 @@ export const CurrLocationForecast = ({ forecast, currLocation, isFahrenheit, set
     }
 
     const transformPhrase = (str) => {
-        return (str.replaceAll('/', 'ith')).toLowerCase()
+        return (str.replaceAll('/', 'ith'))
 
     }
     const mode = (isDarkMode) ? '' : '-dark'
@@ -35,7 +35,7 @@ export const CurrLocationForecast = ({ forecast, currLocation, isFahrenheit, set
                     <p className='temp'>{convertTemp(forecast.dayForecast.temperature)} <TempScalePreview isFahrenheit={isFahrenheit} setIsFahrenheit={setIsFahrenheit} /> </p>
                 </div>
                 <div className="forecast-info">
-                    <p>Day: {transformPhrase(forecast.dayForecast.iconPhrase)}. Night:{transformPhrase(forecast.nightForecast.iconPhrase)}.</p>
+                    <p>Day Forecast: {transformPhrase(forecast.dayForecast.iconPhrase)}. Night Forecast: {transformPhrase(forecast.nightForecast.iconPhrase)}.</p>
                 </div>
             </div>
 
@@ -48,23 +48,3 @@ export const CurrLocationForecast = ({ forecast, currLocation, isFahrenheit, set
 
 
 
-{/* <section className="current-location-forecast flex column align-center justify-space-evenly ">
-
-<header>
-
-    <h3>{currLocation.localizedName}, {currLocation.country}</h3>
-</header>
-
-<div className="temperature">
-    <h4>High: {convertTemp(forecast.dayForecast.temperature)} {temoUnicode}</h4>
-    <h4>Low: {convertTemp(forecast.nightForecast.temperature)} {temoUnicode}</h4>
-</div>
-<div className="forecast-info">
-    <p>The day weather is {(forecast.dayForecast.iconPhrase).toLowerCase()}.During the night {(forecast.nightForecast.iconPhrase).toLowerCase()}.</p>
-
-</div>
-
-
-
-
-</section> */}
