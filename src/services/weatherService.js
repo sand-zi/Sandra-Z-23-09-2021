@@ -59,7 +59,7 @@ async function getLocation() {
 
 async function _getLocationByCoords(lat = '32.045', lon = '34.77') {
     try {
-        const res = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`) || null
+        const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`) || null
 
         return (res) ? _getFormatedLocation(res.data['LocalizedName'], res.data['Key'], res.data['Country']['LocalizedName']) : { ...initialLocation }
     } catch (err) {
@@ -71,7 +71,7 @@ async function _getLocationByCoords(lat = '32.045', lon = '34.77') {
 async function getForecasts(cityKey = '215854') {
 
     try {
-        const res = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
+        const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
         if ((res.data['DailyForecasts'].length)) {
 
             const forecasts = res.data['DailyForecasts'].map(forecast => _getFormatedForecast(forecast))
@@ -92,7 +92,7 @@ async function getForecasts(cityKey = '215854') {
 async function getCityForecast(cityKey = initialLocation.key) {
 
     try {
-        const res = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${API_KEY}&metric=true`)
+        const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${API_KEY}&metric=true`)
         console.log('getCityForecast res.data', res.data)
         if ((res.data['DailyForecasts'].length)) {
             const forecast = _getFormatedForecast(res.data['DailyForecasts'][0])
@@ -108,7 +108,7 @@ async function getCityForecast(cityKey = initialLocation.key) {
 // Autocomplete API CALL
 async function getLocationsList(userInput) {
     try {
-        const res = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${userInput}`)
+        const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${userInput}`)
         if (!res.data || res.data.length === 0) return []
         const locations = res.data.map(city => {
             return _getFormatedLocation(city['LocalizedName'], city['Key'], city['Country']['LocalizedName'])
@@ -197,7 +197,7 @@ function _getFormatedForecast(forecast) {
 //     let forecasts = storageService.load(CURRENT_FORECAST) || []
 //     if (!forecasts.length) {
 //         try {
-//             const res = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
+//             const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
 //             if ((res.data['DailyForecasts'].length)) {
 
 //                 forecasts = res.data['DailyForecasts'].map(forecast => _getFormatedForecast(forecast))
@@ -222,7 +222,7 @@ function _getFormatedForecast(forecast) {
 //     if (!forecastsData.forecasts.length && forecastsData.cityKey!== cityKey) {
 //         console.log('I am requestion information')
 //         try {
-//             const res = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
+//             const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
 //             if ((res.data['DailyForecasts'].length)) {
 
 //                 const forecasts = res.data['DailyForecasts'].map(forecast => _getFormatedForecast(forecast))
