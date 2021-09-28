@@ -51,7 +51,7 @@ async function getLocation() {
         }
     }
     storageService.save(CURRENT_LOCATION, currLocation)
-    console.log('from getlocation', currLocation)
+   
     return currLocation
 
 }
@@ -93,7 +93,7 @@ async function getCityForecast(cityKey = initialLocation.key) {
 
     try {
         const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${API_KEY}&metric=true`)
-        console.log('getCityForecast res.data', res.data)
+       
         if ((res.data['DailyForecasts'].length)) {
             const forecast = _getFormatedForecast(res.data['DailyForecasts'][0])
             return forecast
@@ -193,51 +193,7 @@ function _getFormatedForecast(forecast) {
 
 
 
-// async function getForecasts(cityKey = initialLocation.key) {
-//     let forecasts = storageService.load(CURRENT_FORECAST) || []
-//     if (!forecasts.length) {
-//         try {
-//             const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
-//             if ((res.data['DailyForecasts'].length)) {
-
-//                 forecasts = res.data['DailyForecasts'].map(forecast => _getFormatedForecast(forecast))
-
-//                 storageService.save(CURRENT_FORECAST, forecasts)
 
 
-//             } else {
-//                 return []
-//             }
-//         } catch (err) {
-//             console.log(`getForecasts function error from weatherService`, err)
-//         }
-//     }
-//     return forecasts
-// }
 
 
-// async function getForecasts(cityKey ='215854') {
-//     console.log(cityKey)
-//     let forecastsData = storageService.load(CURRENT_FORECAST) || { forecasts: [], cityKey: '' }
-//     if (!forecastsData.forecasts.length && forecastsData.cityKey!== cityKey) {
-//         console.log('I am requestion information')
-//         try {
-//             const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
-//             if ((res.data['DailyForecasts'].length)) {
-
-//                 const forecasts = res.data['DailyForecasts'].map(forecast => _getFormatedForecast(forecast))
-
-//                 storageService.save(CURRENT_FORECAST, { forecasts, cityKey })
-
-//                 return forecasts
-//             } else {
-//                 return []
-//             }
-//         } catch (err) {
-//             console.log(`getForecasts function error from weatherService`, err)
-//         }
-//     } else {
-//         return [...forecastsData.forecasts]
-//     }
-
-// }

@@ -1,6 +1,6 @@
-
+import { useSelector } from 'react-redux'
 export const OptionPreview = ({ option, onSelectLocation }) => {
-
+    const { isDarkMode } = useSelector(state => state.weatherModule)
     const optionName = `${option.localizedName} - ${option.country}`
 
     const selectLocation = () => {
@@ -8,7 +8,7 @@ export const OptionPreview = ({ option, onSelectLocation }) => {
     }
 
     return (
-        <div className="option-preview" key={option.id} onClick={selectLocation}>
+        <div className={`option-preview ${isDarkMode ? 'dark' : ''}`} key={option.id} onClick={selectLocation}>
             <p>{optionName}</p>
         </div>
     )
