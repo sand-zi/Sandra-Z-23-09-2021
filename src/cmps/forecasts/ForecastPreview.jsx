@@ -11,7 +11,7 @@ export const ForecastPreview = ({ forecast, isFahrenheit }) => {
 
 
     return (
-        <div className={`forecast-preview flex column ${isDarkMode ? 'dark' : ''}`}>
+        <div className={`forecast-preview flex column align-center ${isDarkMode ? 'dark' : ''}`}>
             <div className="img-container grow flex auto-center">
                 <img src={(isDayForecastShown) ? require(`../../assets/images/${forecast.dayForecast.icon}.png`).default : require(`../../assets/images/${forecast.nightForecast.icon}.png`).default} alt="weather-description" />
             </div>
@@ -22,7 +22,7 @@ export const ForecastPreview = ({ forecast, isFahrenheit }) => {
                     {tempSign}</p>
             </div>
             <button onClick={() => setIsDayForecastShown(!isDayForecastShown)}>
-                Check {(isDayForecastShown) ? 'Night' : 'Day'} Forecast
+                For {(isDayForecastShown) ? 'Night' : 'Day'} Forecast
             </button>
 
         </div>

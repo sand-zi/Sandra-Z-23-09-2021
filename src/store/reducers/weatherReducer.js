@@ -8,7 +8,7 @@ const initialState = {
     },
     forecasts: [],
     favoriteCities: [],
-    isDarkMode: false,
+    isDarkMode: true,
 
 }
 

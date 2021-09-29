@@ -21,7 +21,7 @@ const CURRENT_LOCATION = 'CurrLocation'
 const FAVORITE_LOCATIONS = 'FavoriteLocations'
 
 
-const API_KEY = '1w3CF38kDW5s83rMMyJNieup0SEwoQtk'
+const API_KEY = 'sh0OUQ7RvtXa9uUhfJCXLc3lNEqpVCeS'
 
 const initialLocation = {
     localizedName: 'Tel Aviv',
@@ -39,6 +39,7 @@ const initialLocation = {
 // 1. getLocation function based on coordinates used when firstTime page App Loads
 
 async function getLocation() {
+  
     let currLocation = storageService.load(CURRENT_LOCATION) || null
     if (!currLocation) {
         try {
@@ -58,6 +59,7 @@ async function getLocation() {
 
 
 async function _getLocationByCoords(lat = '32.045', lon = '34.77') {
+
     try {
         const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`) || null
 
@@ -69,7 +71,7 @@ async function _getLocationByCoords(lat = '32.045', lon = '34.77') {
 
 // 2. getForecasts gets 5 day forecast based on city key
 async function getForecasts(cityKey = '215854') {
-
+    
     try {
         const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}&metric=true`)
         if ((res.data['DailyForecasts'].length)) {
@@ -90,7 +92,7 @@ async function getForecasts(cityKey = '215854') {
 // getForecast For Specific city
 
 async function getCityForecast(cityKey = initialLocation.key) {
-
+   
     try {
         const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${API_KEY}&metric=true`)
        
@@ -107,6 +109,7 @@ async function getCityForecast(cityKey = initialLocation.key) {
 
 // Autocomplete API CALL
 async function getLocationsList(userInput) {
+  
     try {
         const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${userInput}`)
         if (!res.data || res.data.length === 0) return []

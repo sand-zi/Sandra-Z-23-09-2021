@@ -1,13 +1,12 @@
 import { useRef } from 'react'
 import debounce from 'lodash.debounce';
-
-
+import { ToastContainer, toast } from 'react-toastify';
 
 import { weatherService } from '../../services/weatherService.js'
-// const customId = "error-toast";
-// const throwError = (msg) => {
-//     toast.error(msg, { autoClose: 3000, toastId: customId })
-// };
+const customId = "error-toast";
+const throwError = (msg) => {
+    toast.error(msg, { autoClose: 3000, toastId: customId, closeOnClick: true, hideProgressBar: true })
+};
 
 export const WeatherSearch = ({ options, setOptions, value, setValue }) => {
 
@@ -31,7 +30,8 @@ export const WeatherSearch = ({ options, setOptions, value, setValue }) => {
             debouncedSearch(value)
         }
         else if (value.length > 0) {
-            // throwError("The search is available on English only")
+            throwError("The search is available on English only")
+            setValue('')
             return
         }
 
@@ -39,6 +39,7 @@ export const WeatherSearch = ({ options, setOptions, value, setValue }) => {
 
     return (
         <div className="weather-search">
+            <ToastContainer />
             <input type="text" value={value} onChange={(ev) => onHandleChange(ev)} placeholder="Location search" className={changeBorders} />
             {/* <ToastContainer /> */}
             {/* <TextField

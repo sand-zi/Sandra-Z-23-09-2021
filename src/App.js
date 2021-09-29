@@ -1,4 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { AppHeader } from './cmps/AppHeader';
 import { Favorites } from './pages/Favorites';

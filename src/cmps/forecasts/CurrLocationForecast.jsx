@@ -1,6 +1,6 @@
-
 import { useSelector } from 'react-redux'
 import { TempScalePreview } from "./TempScalePreview"
+
 
 export const CurrLocationForecast = ({ forecast, currLocation, isFahrenheit, setIsFahrenheit, toggleFavorite }) => {
     const { isDarkMode } = useSelector(state => state.weatherModule)

@@ -4,6 +4,13 @@ import { useEffect, useCallback, useState } from 'react'
 import { ForecastInfo } from './forecasts/ForecastInfo.jsx'
 import { WeatherSearch } from './search/WeatherSearch.jsx'
 import { OptionList } from './search/OptionList.jsx'
+import { ToastContainer, toast } from 'react-toastify';
+
+
+
+const throwInfo = (msg) => {
+    toast.info(msg, { autoClose: 2500, closeOnClick: true, hideProgressBar: true })
+};
 
 export const WeatherApp = () => {
     const { currLocation, forecasts } = useSelector(state => state.weatherModule)
@@ -18,10 +25,16 @@ export const WeatherApp = () => {
     const addFavorite = useCallback(() => dispatch(addToFavorites(currLocation)), [currLocation, dispatch])
     const removeFromFavorite = useCallback(() => dispatch(removeFromFavorites(currLocation)), [currLocation, dispatch])
 
+    const getMessage = (actionStr) => `The ${currLocation.localizedName} was ${actionStr} favorites`
+
     const toggleFavorite = () => {
         if (currLocation.isFavorite) {
             removeFromFavorite()
-        } else addFavorite()
+            throwInfo(getMessage('removed from'))
+        } else {
+            addFavorite()
+            throwInfo(getMessage('added to'))
+        }
     }
     const onSelectLocation = useCallback(location => {
         dispatch(updateCurrtLocation({ ...location }))
@@ -32,10 +45,10 @@ export const WeatherApp = () => {
     return (
         <section className="weather-app">
             <div className="search-container">
-                <WeatherSearch setOptions={setOptions} value={value} setValue={setValue} options={options}/>
+                <WeatherSearch setOptions={setOptions} value={value} setValue={setValue} options={options} />
                 {(options.length > 0) && <OptionList options={options} onSelectLocation={onSelectLocation} />}
             </div>
-         
+
 
             {(forecasts.length > 0) && <ForecastInfo forecasts={forecasts} currLocation={currLocation} toggleFavorite={toggleFavorite} />}
 
