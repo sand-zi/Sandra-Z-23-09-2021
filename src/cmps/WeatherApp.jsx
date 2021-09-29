@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const throwInfo = (msg) => {
-    toast.info(msg, { autoClose: 2500, closeOnClick: true, hideProgressBar: true })
+    toast.info(msg, { autoClose: 2000, closeOnClick: true, hideProgressBar: true })
 };
 
 export const WeatherApp = () => {
