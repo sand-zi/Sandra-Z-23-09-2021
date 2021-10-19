@@ -1,18 +1,16 @@
 .home {
-    min-height: 100vh;
-    padding: 2em;
-    
-    
-    background: linear-gradient($clr4, $clr6);
-    & > * {
-        color: $clr3;
-    }
+  min-height: 100vh;
+  padding: 2em;
 
-    &.dark{
-        background: linear-gradient($clr3, $clr2);
+  background: linear-gradient($clr4, $clr6);
+  & > * {
+    color: $clr3;
+  }
+
+  &.dark {
+    background: linear-gradient($clr3, $clr2);
     & > * {
-        color: $clr4;
-       
+      color: $clr4;
     }
-    }
+  }
 }

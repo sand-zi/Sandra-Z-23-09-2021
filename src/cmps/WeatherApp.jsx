@@ -20,9 +20,7 @@ const throwInfo = (msg) => {
 };
 
 export const WeatherApp = () => {
-  const { currLocation, forecasts } = useSelector(
-    (state) => state.weatherModule
-  );
+  const { currLocation, forecasts } = useSelector((state) => state.weatherModule);
   const [options, setOptions] = useState([]);
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
@@ -31,17 +29,10 @@ export const WeatherApp = () => {
     dispatch(loadForeacsts(currLocation.key));
   }, [dispatch, currLocation.key]);
 
-  const addFavorite = useCallback(
-    () => dispatch(addToFavorites(currLocation)),
-    [currLocation, dispatch]
-  );
-  const removeFromFavorite = useCallback(
-    () => dispatch(removeFromFavorites(currLocation)),
-    [currLocation, dispatch]
-  );
+  const addFavorite = useCallback(() => dispatch(addToFavorites(currLocation)), [currLocation, dispatch]);
+  const removeFromFavorite = useCallback(() => dispatch(removeFromFavorites(currLocation)), [currLocation, dispatch]);
 
-  const getMessage = (actionStr) =>
-    `The ${currLocation.localizedName} was ${actionStr} favorites`;
+  const getMessage = (actionStr) => `The ${currLocation.localizedName} was ${actionStr} favorites`;
 
   const toggleFavorite = () => {
     if (currLocation.isFavorite) {
@@ -64,23 +55,12 @@ export const WeatherApp = () => {
   return (
     <section className="weather-app">
       <div className="search-container">
-        <WeatherSearch
-          setOptions={setOptions}
-          value={value}
-          setValue={setValue}
-          options={options}
-        />
-        {options.length > 0 && (
-          <OptionList options={options} onSelectLocation={onSelectLocation} />
-        )}
+        <WeatherSearch setOptions={setOptions} value={value} setValue={setValue} options={options} />
+        {options.length > 0 && <OptionList options={options} onSelectLocation={onSelectLocation} />}
       </div>
 
       {forecasts.length > 0 && (
-        <ForecastInfo
-          forecasts={forecasts}
-          currLocation={currLocation}
-          toggleFavorite={toggleFavorite}
-        />
+        <ForecastInfo forecasts={forecasts} currLocation={currLocation} toggleFavorite={toggleFavorite} />
       )}
     </section>
   );

@@ -17,7 +17,7 @@ const CURRENT_FORECAST = "CurrForecast";
 const CURRENT_LOCATION = "CurrLocation";
 const FAVORITE_LOCATIONS = "FavoriteLocations";
 
-const API_KEY = "sh0OUQ7RvtXa9uUhfJCXLc3lNEqpVCeS";
+const API_KEY = "1w3CF38kDW5s83rMMyJNieup0SEwoQtk";
 const FORECASTURL = "https://dataservice.accuweather.com/forecasts/v1/daily";
 const AUTOCOMPLETEURL = "https://dataservice.accuweather.com/locations/v1/cities/autocomplete";
 const GEOPOSITIONURL = "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?";
@@ -42,7 +42,6 @@ async function getLocation() {
       const { latitude, longitude } = coords;
       currLocation = await _getLocationByCoords(latitude, longitude);
     } catch (err) {
-      console.log(`getLocation function error from weatherService`, err);
       currLocation = await _getLocationByCoords("32.045", "34.77");
     }
   }
@@ -103,7 +102,7 @@ async function getLocationsList(userInput) {
     });
     return locations;
   } catch (err) {
-    console.log(`There is an error in getLocationsList function`, err);
+    console.log(`getLocationsList function error from weatherService`, err);
   }
 }
 

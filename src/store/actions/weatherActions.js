@@ -7,10 +7,7 @@ export function loadForeacsts(key) {
       // Describe changes in the system as plain objects
       dispatch({ type: "SET_FORECASTS", forecasts });
     } catch (err) {
-      console.log(
-        "there is a problem in loading forecasts in loadForeacsts action",
-        err
-      );
+      console.log("there is a problem in loading forecasts in loadForeacsts action", err);
     }
   };
 }
@@ -21,10 +18,7 @@ export function loadInitialLocation() {
       const currLocation = await weatherService.getLocation();
       dispatch({ type: "SET_CURRLOCATION", currLocation });
     } catch (err) {
-      console.log(
-        "there is a problem in loading currLocation in loadCurrentLocation action",
-        err
-      );
+      console.log("there is a problem in loading currLocation in loadCurrentLocation action", err);
     }
   };
 }
@@ -35,8 +29,7 @@ export function updateCurrtLocation(location) {
 }
 
 export function addToFavorites(location) {
-  const { newLocation, favoriteLocations } =
-    weatherService.addToFavoriteCities(location);
+  const { newLocation, favoriteLocations } = weatherService.addToFavoriteCities(location);
 
   return (dispatch) => {
     dispatch({ type: "SET_CURRLOCATION", currLocation: newLocation });
@@ -48,8 +41,7 @@ export function addToFavorites(location) {
 }
 
 export function removeFromFavorites(location) {
-  const { newLocation, favoriteLocations } =
-    weatherService.removeFromFavoriteCities(location);
+  const { newLocation, favoriteLocations } = weatherService.removeFromFavoriteCities(location);
   return (dispatch) => {
     dispatch({ type: "SET_CURRLOCATION", currLocation: newLocation });
     dispatch({
@@ -61,12 +53,9 @@ export function removeFromFavorites(location) {
 
 export function loadFavoriteCities() {
   const favoriteCities = weatherService.getFavoriteCities();
-  return (dispatch) =>
-    dispatch({ type: "SET_FAVORITE_CITIES", favoriteCities });
+  return (dispatch) => dispatch({ type: "SET_FAVORITE_CITIES", favoriteCities });
 }
 
 export function setColorMode(boolean) {
-  console.log(boolean);
-  return (dispatch) =>
-    dispatch({ type: "SET_COLOR_MODE", isDarkMode: boolean });
+  return (dispatch) => dispatch({ type: "SET_COLOR_MODE", isDarkMode: boolean });
 }

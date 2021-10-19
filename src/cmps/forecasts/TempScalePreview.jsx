@@ -9,10 +9,7 @@ export const TempScalePreview = ({ isFahrenheit, setIsFahrenheit }) => {
     <span className="temp-scale-preview">
       <span className="active-sign">{firstSign}</span>
       <span className={`border ${isDarkMode ? "dark" : ""} `}></span>
-      <span
-        className={`non-active-sign  ${isDarkMode ? "dark" : ""}`}
-        onClick={() => setIsFahrenheit(!isFahrenheit)}
-      >
+      <span className={`non-active-sign  ${isDarkMode ? "dark" : ""}`} onClick={() => setIsFahrenheit(!isFahrenheit)}>
         {secondSign}
       </span>
     </span>

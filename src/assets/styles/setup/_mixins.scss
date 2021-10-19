@@ -1,6 +1,6 @@
 /* Breakpoint mixins */
 @mixin for-narrow-layout {
-  @media (max-width:  $narrow-breakpoint) {
+  @media (max-width: $narrow-breakpoint) {
     @content;
   }
 }

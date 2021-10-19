@@ -10,30 +10,20 @@ export const ForecastPreview = ({ forecast, isFahrenheit }) => {
   };
 
   return (
-    <div
-      className={`forecast-preview flex column align-center ${
-        isDarkMode ? "dark" : ""
-      }`}
-    >
+    <div className={`forecast-preview flex column align-center ${isDarkMode ? "dark" : ""}`}>
       <div className="img-container grow flex auto-center">
         <img
           src={
             isDayForecastShown
-              ? require(`../../assets/images/${forecast.dayForecast.icon}.png`)
-                  .default
-              : require(`../../assets/images/${forecast.nightForecast.icon}.png`)
-                  .default
+              ? require(`../../assets/images/${forecast.dayForecast.icon}.png`).default
+              : require(`../../assets/images/${forecast.nightForecast.icon}.png`).default
           }
           alt="weather-description"
         />
       </div>
       <div className="weather-description">
         <p> {forecast.date}</p>
-        <p>
-          {isDayForecastShown
-            ? forecast.dayForecast.iconPhrase
-            : forecast.nightForecast.iconPhrase}
-        </p>
+        <p>{isDayForecastShown ? forecast.dayForecast.iconPhrase : forecast.nightForecast.iconPhrase}</p>
         <p>
           {" "}
           {isDayForecastShown

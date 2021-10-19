@@ -1,13 +1,7 @@
 import { useSelector } from "react-redux";
 import { TempScalePreview } from "./TempScalePreview";
 
-export const CurrLocationForecast = ({
-  forecast,
-  currLocation,
-  isFahrenheit,
-  setIsFahrenheit,
-  toggleFavorite,
-}) => {
+export const CurrLocationForecast = ({ forecast, currLocation, isFahrenheit, setIsFahrenheit, toggleFavorite }) => {
   const { isDarkMode } = useSelector((state) => state.weatherModule);
   const convertTemp = (temp) => {
     return isFahrenheit ? Math.round((temp * 9) / 5 + 32) : Math.round(temp);
@@ -36,28 +30,19 @@ export const CurrLocationForecast = ({
           />
         </header>
         <div className="img-container">
-          <img
-            src={
-              require(`../../assets/images/${forecast.dayForecast.icon}.png`)
-                .default
-            }
-          />
+          <img src={require(`../../assets/images/${forecast.dayForecast.icon}.png`).default} />
         </div>
 
         <div className="temperature">
           <p className="temp">
             {convertTemp(forecast.dayForecast.temperature)}{" "}
-            <TempScalePreview
-              isFahrenheit={isFahrenheit}
-              setIsFahrenheit={setIsFahrenheit}
-            />{" "}
+            <TempScalePreview isFahrenheit={isFahrenheit} setIsFahrenheit={setIsFahrenheit} />{" "}
           </p>
         </div>
         <div className="forecast-info">
           <p>
-            Day Forecast: {transformPhrase(forecast.dayForecast.iconPhrase)}.
-            Night Forecast: {transformPhrase(forecast.nightForecast.iconPhrase)}
-            .
+            Day Forecast: {transformPhrase(forecast.dayForecast.iconPhrase)}. Night Forecast:{" "}
+            {transformPhrase(forecast.nightForecast.iconPhrase)}.
           </p>
         </div>
       </div>

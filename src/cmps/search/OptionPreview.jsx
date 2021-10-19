@@ -8,11 +8,7 @@ export const OptionPreview = ({ option, onSelectLocation }) => {
   };
 
   return (
-    <div
-      className={`option-preview ${isDarkMode ? "dark" : ""}`}
-      key={option.id}
-      onClick={selectLocation}
-    >
+    <div className={`option-preview ${isDarkMode ? "dark" : ""}`} key={option.id} onClick={selectLocation}>
       <p>{optionName}</p>
     </div>
   );

@@ -1,26 +1,26 @@
 .option-list {
-    background: rgba(255, 255, 255, 0.6);
-    position: absolute;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 
-    padding: 0rem 1rem 1rem 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+  padding: 0rem 1rem 1rem 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 
-    @include from-mobile-layout {
-        width: 80%;
-    }
+  @include from-mobile-layout {
+    width: 80%;
+  }
 
-    @include from-narrow-layout {
-        width: 60%;
-    }
+  @include from-narrow-layout {
+    width: 60%;
+  }
 
-    @include from-normal-layout {
-        width: 40%;
-    }
+  @include from-normal-layout {
+    width: 40%;
+  }
 
-    @include from-wide-layout {
-        width: 30%;
-    }
+  @include from-wide-layout {
+    width: 30%;
+  }
 }

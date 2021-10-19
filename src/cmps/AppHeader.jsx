@@ -31,21 +31,12 @@ export const AppHeader = () => {
       <nav className={`main-nav ${isMenuOpen ? "open" : ""}`}>
         <ul className="main-menu flex clean-list">
           <li>
-            <NavLink
-              className="main-link"
-              activeClassName="active-nav"
-              exact
-              to="/"
-            >
+            <NavLink className="main-link" activeClassName="active-nav" exact to="/">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink
-              className="main-link"
-              to="/favorites"
-              activeClassName="active-nav"
-            >
+            <NavLink className="main-link" to="/favorites" activeClassName="active-nav">
               Favorites
             </NavLink>
           </li>

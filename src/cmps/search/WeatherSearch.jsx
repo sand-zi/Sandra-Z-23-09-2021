@@ -20,9 +20,7 @@ export const WeatherSearch = ({ options, setOptions, value, setValue }) => {
       setOptions([...locationOptions]);
     }
   };
-  const debouncedSearch = useRef(
-    debounce((input) => performSearch(input), 2000)
-  ).current;
+  const debouncedSearch = useRef(debounce((input) => performSearch(input), 2000)).current;
 
   const changeBorders = options.length > 0 ? "active-options" : "";
 

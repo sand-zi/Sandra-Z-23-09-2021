@@ -1,23 +1,22 @@
 .temp-scale-preview {
-    font-size: rem(36px);
-    .active-sign {
-        padding-right: 10px;
+  font-size: rem(36px);
+  .active-sign {
+    padding-right: 10px;
+  }
+  .border {
+    border-left: solid 2px $clr3;
+    opacity: 0.5;
+    &.dark {
+      border-left: solid 2px $clr6;
     }
-    .border {
-        border-left: solid 2px $clr3;
-        opacity: 0.5;
-        &.dark {
-            border-left: solid 2px $clr6;
-        }
+  }
+  .non-active-sign {
+    padding-left: 10px;
+    color: $clr3;
+    opacity: 0.5;
+    cursor: pointer;
+    &.dark {
+      color: $clr6;
     }
-    .non-active-sign {
-        padding-left: 10px;
-        color: $clr3;
-        opacity: 0.5;
-        cursor: pointer;
-        &.dark {
-          
-            color: $clr6;
-        }
-    }
+  }
 }

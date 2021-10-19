@@ -1,17 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import {
-  loadFavoriteCities,
-  updateCurrtLocation,
-} from "../store/actions/weatherActions.js";
+import { loadFavoriteCities, updateCurrtLocation } from "../store/actions/weatherActions.js";
 import { useEffect, useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FavoriteCityList } from "../cmps/favorites/FavoriteCityList.jsx";
 import { NoFavoriteCities } from "../cmps/favorites/NoFavoriteCities.jsx";
 
 export const Favorites = () => {
-  const { favoriteCities, isDarkMode } = useSelector(
-    (state) => state.weatherModule
-  );
+  const { favoriteCities, isDarkMode } = useSelector((state) => state.weatherModule);
   const [isFahrenheit, setIsFahrenheit] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();

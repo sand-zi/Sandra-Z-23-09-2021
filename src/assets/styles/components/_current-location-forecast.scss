@@ -1,63 +1,62 @@
 .current-location-forecast {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 2rem;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 2rem;
 
+  .info-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem 0;
+  }
+
+  .forecast-info {
+    grid-column: span 2;
+  }
+  .img-container {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    img {
+      width: 150px;
+    }
+  }
+
+  header {
+    grid-column: span 2;
+    grid-row: 1;
+    padding: 1rem 0;
+    img {
+      width: 24px;
+      margin-left: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .temperature {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    p {
+      font-size: rem(48px);
+    }
+  }
+
+  @include from-narrow-layout {
+    width: 80%;
+  }
+
+  @include from-normal-layout {
+    width: 60%;
     .info-container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-gap: 1rem 0;
+      grid-template-columns: 45% 50%;
     }
+  }
 
-    .forecast-info {
-        grid-column: span 2;
+  @include from-wide-layout {
+    width: 40%;
+    .info-container {
+      grid-template-columns: 35% 50%;
     }
-    .img-container {
-        grid-column: 1;
-        grid-row: 2;
-        align-self: center;
-        justify-self: center;
-        img {
-            width: 150px;
-        }
-    }
-
-    header {
-        grid-column: span 2;
-        grid-row: 1;
-        padding: 1rem 0;
-        img {
-            width: 24px;
-            margin-left: 12px;
-            cursor: pointer;
-        }
-       
-    }
-
-    .temperature {
-        grid-column: 2;
-        grid-row: 2;
-        align-self: center;
-        p {
-            font-size: rem(48px);
-        }
-    }
-
-    @include from-narrow-layout {
-        width: 80%;
-    }
-
-    @include from-normal-layout {
-        width: 60%;
-        .info-container {
-            grid-template-columns: 45% 50%;
-        }
-    }
-
-    @include from-wide-layout {
-        width: 40%;
-        .info-container {
-            grid-template-columns: 35% 50%;
-        }
-    }
+  }
 }
