@@ -1,14 +1,12 @@
-import { Switch, Route } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
+import { Switch, Route } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
-import { AppHeader } from './cmps/AppHeader';
-import { Favorites } from './pages/Favorites';
-import { Home } from './pages/Home';
-import './assets/styles/styles.scss';
+import { AppHeader } from "./cmps/AppHeader";
+import { Favorites } from "./pages/Favorites";
+import { Home } from "./pages/Home";
+import "./assets/styles/styles.scss";
 
 function App() {
-
-  
   return (
     <div className="app">
       <AppHeader />
